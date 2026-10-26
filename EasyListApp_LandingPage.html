@@ -19,6 +19,8 @@
                         appleText: '#1d1d1f',
                         appleSecText: '#86868b',
                         appleBorder: '#e5e5ea',
+                        greenLight: '#e9f5ee',
+                        greenApp: '#28774a',
                     },
                     fontFamily: {
                         sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
@@ -59,18 +61,37 @@
 </head>
 <body class="bg-appleBg text-appleText font-sans antialiased selection:bg-appleAccent selection:text-white">
 
-    <!-- Header (Static Apple style with non-clickable list logo and plain text Home link) -->
+    <!-- Header (Static Apple style with exact index.html icon and plain text Home link) -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-gray-200/60 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-12 sm:h-14 flex items-center justify-between">
-            <!-- Non-clickable Icon + Title with List Icon -->
-            <div class="flex items-center space-x-2.5 font-semibold text-lg sm:text-xl tracking-tight">
-                <span class="bg-emerald-700 text-white p-1.5 rounded-xl shadow-sm flex items-center justify-center">
-                    <i data-lucide="list-checks" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-                </span>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
+            <!-- Non-clickable Icon + Title with exact index.html SVG styling -->
+            <div class="flex items-center space-x-3 font-semibold text-lg sm:text-xl tracking-tight">
+                <div style="display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: #e9f5ee; color: #28774a;" aria-hidden="true">
+                    <svg
+                        viewBox="0 0 32 32"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="width: 20px; height: 20px;"
+                    >
+                        <path
+                            d="M5 9L7 11L11 6M5 17L7 19L11 14M5 25L7 27L11 22"
+                            stroke="currentColor"
+                            stroke-width="2.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M16 9H27M16 17H27M16 25H27"
+                            stroke="currentColor"
+                            stroke-width="2.2"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+                </div>
                 <span class="text-appleText font-bold">EasyList</span>
             </div>
 
-            <!-- Plain Text Home Link (Matches index.html link behavior) -->
+            <!-- Plain Text Home Link -->
             <a href="index.html" class="text-sm font-medium text-appleAccent hover:underline underline-offset-4 transition-all">
                 Home
             </a>
@@ -436,9 +457,28 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="flex items-center space-x-2">
-                    <span class="bg-emerald-700 text-white p-1 rounded-md">
-                        <i data-lucide="list-checks" class="w-3.5 h-3.5"></i>
-                    </span>
+                    <div style="display: grid; place-items: center; width: 24px; height: 24px; border-radius: 6px; background: #e9f5ee; color: #28774a;" aria-hidden="true">
+                        <svg
+                            viewBox="0 0 32 32"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style="width: 14px; height: 14px;"
+                        >
+                            <path
+                                d="M5 9L7 11L11 6M5 17L7 19L11 14M5 25L7 27L11 22"
+                                stroke="currentColor"
+                                stroke-width="2.2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M16 9H27M16 17H27M16 25H27"
+                                stroke="currentColor"
+                                stroke-width="2.2"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    </div>
                     <span class="font-semibold text-appleText">EasyList</span>
                     <span>— Simple, focused checklist app for iOS.</span>
                 </div>
@@ -447,3 +487,23 @@
                     <span class="hover:text-appleText transition-colors">SwiftUI & Swift</span>
                     <span class="hover:text-appleText transition-colors">Local-Only Data</span>
                     <span class="hover:text-appleText transition-colors">varun1329@icloud.com</span>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-gray-200/60 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center text-[11px] text-gray-400">
+                <p>&copy; EasyList App. Built with Swift, SwiftUI, AVFoundation, and local JSON persistence.</p>
+                <p class="mt-2 sm:mt-0">Apple-inspired Landing Page</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Safely initialize Lucide icons
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>
