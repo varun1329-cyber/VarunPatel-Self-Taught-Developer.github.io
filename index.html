@@ -214,7 +214,7 @@
     }
 
     h1 {
-      font-size: clamp(3rem, 6.1vw, 5.1rem);
+      font-size: clamp(2.5rem, 4vw, 4.2rem);
       font-weight: 650;
       line-height: 1.07;
       letter-spacing: -0.065em;
@@ -269,17 +269,20 @@
       min-width: 0;
       justify-self: stretch;
       overflow: hidden;
+      padding: 0;
+      background: transparent;
+      border: 0;
     }
 
     .portrait-image {
       width: 100%;
-      max-width: 100%;
       height: 100%;
       min-height: 420px;
       border: 0;
-      border-radius: 22px;
+      border-radius: var(--radius);
       object-fit: contain;
       background: #f6f7f9;
+      display: block;
     }
 
     /* Projects */
@@ -443,7 +446,7 @@
       }
 
       h1 {
-        font-size: clamp(2.8rem, 6vw, 4rem);
+        font-size: clamp(2.4rem, 4vw, 3.5rem);
       }
 
       .project-grid {
@@ -473,7 +476,7 @@
       }
 
       h1 {
-        font-size: clamp(2.8rem, 10vw, 4.3rem);
+        font-size: clamp(2.6rem, 10vw, 3.7rem);
       }
 
       .portrait {
@@ -503,7 +506,7 @@
 
     @media (max-width: 380px) {
       h1 {
-        font-size: clamp(2.35rem, 10vw, 2.8rem);
+        font-size: clamp(2.2rem, 9vw, 2.8rem);
       }
 
       .hero-tagline {
