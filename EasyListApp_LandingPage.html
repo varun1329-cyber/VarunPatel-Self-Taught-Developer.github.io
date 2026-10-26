@@ -19,8 +19,8 @@
                         appleText: '#1d1d1f',
                         appleSecText: '#86868b',
                         appleBorder: '#e5e5ea',
+                        greenColor: '#28774a',
                         greenLight: '#e9f5ee',
-                        greenApp: '#28774a',
                     },
                     fontFamily: {
                         sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
@@ -57,22 +57,33 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* Exact app-icon styling matching index.html */
+        .app-icon-header {
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            background: #e9f5ee;
+            color: #28774a;
+        }
+
+        .app-icon-header svg {
+            width: 20px;
+            height: 20px;
+        }
     </style>
 </head>
 <body class="bg-appleBg text-appleText font-sans antialiased selection:bg-appleAccent selection:text-white">
 
-    <!-- Header (Static Apple style with exact index.html icon and plain text Home link) -->
+    <!-- Header (Static Apple style with exact app-icon styling and plain text Home link) -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-gray-200/60 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
-            <!-- Non-clickable Icon + Title with exact index.html SVG styling -->
+            <!-- Non-clickable Icon + Title with exact styling -->
             <div class="flex items-center space-x-3 font-semibold text-lg sm:text-xl tracking-tight">
-                <div style="display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: #e9f5ee; color: #28774a;" aria-hidden="true">
-                    <svg
-                        viewBox="0 0 32 32"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        style="width: 20px; height: 20px;"
-                    >
+                <div class="app-icon-header" aria-hidden="true">
+                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M5 9L7 11L11 6M5 17L7 19L11 14M5 25L7 27L11 22"
                             stroke="currentColor"
@@ -458,12 +469,7 @@
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="flex items-center space-x-2">
                     <div style="display: grid; place-items: center; width: 24px; height: 24px; border-radius: 6px; background: #e9f5ee; color: #28774a;" aria-hidden="true">
-                        <svg
-                            viewBox="0 0 32 32"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            style="width: 14px; height: 14px;"
-                        >
+                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 14px; height: 14px;">
                             <path
                                 d="M5 9L7 11L11 6M5 17L7 19L11 14M5 25L7 27L11 22"
                                 stroke="currentColor"
