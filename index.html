@@ -191,12 +191,22 @@
 
     .hero {
       display: grid;
-      grid-template-columns:
-        minmax(0, 1.2fr)
-        minmax(0, 0.85fr);
-      align-items: center;
-      gap: clamp(32px, 5vw, 72px);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 24px;
       padding-block: clamp(44px, 7vw, 88px);
+    }
+
+    .hero-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+      min-height: 100%;
+      padding: clamp(24px, 3.3vw, 38px);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      border-radius: var(--radius);
+      background: #ffffff;
     }
 
     .hero-copy {
@@ -255,17 +265,21 @@
 
     .portrait {
       width: 100%;
-      max-width: 540px;
+      max-width: 100%;
       min-width: 0;
-      justify-self: end;
+      justify-self: stretch;
+      overflow: hidden;
     }
 
     .portrait-image {
       width: 100%;
       max-width: 100%;
-      height: auto;
+      height: 100%;
+      min-height: 420px;
       border: 0;
+      border-radius: 22px;
       object-fit: contain;
+      background: #f6f7f9;
     }
 
     /* Projects */
@@ -424,10 +438,8 @@
 
     @media (max-width: 900px) {
       .hero {
-        grid-template-columns:
-          minmax(0, 1.15fr)
-          minmax(0, 0.85fr);
-        gap: 32px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
       }
 
       h1 {
@@ -456,7 +468,7 @@
 
       .hero {
         grid-template-columns: minmax(0, 1fr);
-        gap: 32px;
+        gap: 20px;
         padding-block: 42px 50px;
       }
 
@@ -469,6 +481,10 @@
         justify-self: center;
       }
 
+      .portrait-image {
+        min-height: 320px;
+      }
+
       .project-grid {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -477,7 +493,8 @@
         margin-bottom: 22px;
       }
 
-      .project-card {
+      .project-card,
+      .hero-panel {
         padding: 28px;
       }
     }
@@ -493,7 +510,8 @@
         font-size: 1.2rem;
       }
 
-      .project-card {
+      .project-card,
+      .hero-panel {
         padding: 22px;
       }
 
@@ -527,7 +545,8 @@
         width: calc(100% - 24px);
       }
 
-      .project-card {
+      .project-card,
+      .hero-panel {
         padding: 18px;
       }
 
@@ -560,7 +579,7 @@
 
     <!-- Introduction -->
     <section class="hero" aria-labelledby="intro-title">
-      <div class="hero-copy">
+      <div class="hero-panel hero-copy">
         <h1 id="intro-title">
           <span class="intro-line">Hi, I am</span>
           <span class="intro-line">Varun Patel.</span>
@@ -599,7 +618,7 @@
       </div>
 
       <!-- Entire image displays in its original proportions. -->
-      <figure class="portrait">
+      <figure class="hero-panel portrait">
         <img
           class="portrait-image"
           src="./Gemini_Generated_Image_y3924jy3924jy392.jpg"
