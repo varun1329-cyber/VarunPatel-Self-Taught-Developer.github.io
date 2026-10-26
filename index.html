@@ -22,7 +22,7 @@
   <style>
     :root {
       --background: #f5f5f7;
-      --surface: #ffffff;
+      --surface: rgba(255, 255, 255, 0.85);
       --text: #1d1d1f;
       --secondary: #626267;
       --border: #dedee3;
@@ -132,27 +132,34 @@
     /* Header */
 
     .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       background: var(--surface);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .header-inner {
       display: flex;
       align-items: center;
-      min-height: 92px;
-      padding-block: 18px;
+      justify-content: space-between;
+      min-height: 72px;
+      padding-block: 14px;
+      gap: 24px;
     }
 
     .header-identity {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 3px;
+      gap: 2px;
       min-width: 0;
     }
 
     .site-name {
-      font-size: 1.16rem;
+      font-size: 1.05rem;
       font-weight: 650;
       line-height: 1.35;
       letter-spacing: -0.035em;
@@ -160,8 +167,24 @@
 
     .header-caption {
       color: var(--secondary);
-      font-size: 0.78rem;
-      line-height: 1.5;
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.87rem;
+      font-weight: 500;
+    }
+
+    .header-nav a {
+      color: var(--text);
+    }
+
+    .header-nav a:hover {
+      color: var(--blue);
     }
 
     /* Introduction */
@@ -274,7 +297,7 @@
       padding: clamp(24px, 3.3vw, 38px);
       border: 1px solid rgba(0, 0, 0, 0.04);
       border-radius: var(--radius);
-      background: var(--surface);
+      background: #ffffff;
     }
 
     /* Icon and project name share one row. */
@@ -418,6 +441,18 @@
     /* Phones and narrow tablet windows */
 
     @media (max-width: 700px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .header-nav {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 16px;
+      }
+
       .hero {
         grid-template-columns: minmax(0, 1fr);
         gap: 32px;
@@ -449,11 +484,6 @@
     /* Narrow phones */
 
     @media (max-width: 380px) {
-      .header-inner {
-        min-height: 82px;
-        padding-block: 16px;
-      }
-
       h1 {
         font-size: clamp(2.35rem, 10vw, 2.8rem);
       }
@@ -518,6 +548,10 @@
         <p class="site-name">Varun Patel</p>
         <p class="header-caption">Independent Developer</p>
       </div>
+      <nav class="header-nav" aria-label="Header Navigation">
+        <a href="./EasyListApp_LandingPage.html" target="_self">EasyListapp</a>
+        <a href="#projects-title">Trip Mate</a>
+      </nav>
     </div>
   </header>
 
