@@ -1,4 +1,3 @@
-# VarunPatel-Self-Taught-Developer.github.io
 # Varun Patel — Personal Developer Portfolio
 
 A clean, responsive, Apple-inspired personal portfolio website built with modern HTML5 and CSS. This portfolio highlights Varun Patel's journey as an independent iOS developer, featuring project highlights for apps like **EasyListApp** and **Trip Mate**.
