@@ -16,12 +16,13 @@
   <meta name="theme-color" content="#f5f5f7">
   <meta name="color-scheme" content="light">
 
+  <!-- Keep the email as plain text on supported Apple browsers. -->
+  <meta name="format-detection" content="telephone=no, email=no">
+
   <title>Varun Patel | Independent Developer</title>
 
   <style>
-    /* ==============================
-       Theme
-       ============================== */
+    /* ---------- Theme ---------- */
 
     :root {
       --background: #f5f5f7;
@@ -34,9 +35,7 @@
       --radius: 28px;
     }
 
-    /* ==============================
-       Base
-       ============================== */
+    /* ---------- Base ---------- */
 
     *,
     *::before,
@@ -72,6 +71,14 @@
       color: var(--text);
     }
 
+    h1,
+    h2,
+    h3,
+    p,
+    figure {
+      margin: 0;
+    }
+
     a {
       color: var(--blue);
       text-decoration: none;
@@ -86,13 +93,6 @@
       outline: 3px solid var(--blue);
       outline-offset: 6px;
       border-radius: 4px;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin: 0;
     }
 
     img {
@@ -123,12 +123,10 @@
       top: 12px;
     }
 
-    /* ==============================
-       Header
-       ============================== */
+    /* ---------- Header ---------- */
 
     .site-header {
-      background: rgba(255, 255, 255, 0.85);
+      background: var(--surface);
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
@@ -143,12 +141,11 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 2px;
+      gap: 3px;
       min-width: 0;
     }
 
     .site-name {
-      color: var(--text);
       font-size: 1.16rem;
       font-weight: 650;
       letter-spacing: -0.035em;
@@ -159,12 +156,9 @@
       color: var(--secondary);
       font-size: 0.78rem;
       line-height: 1.5;
-      letter-spacing: -0.01em;
     }
 
-    /* ==============================
-       Introduction
-       ============================== */
+    /* ---------- Introduction ---------- */
 
     .hero {
       display: grid;
@@ -183,7 +177,7 @@
     h1 {
       font-size: clamp(3rem, 6.1vw, 5.1rem);
       font-weight: 650;
-      line-height: 1.06;
+      line-height: 1.07;
       letter-spacing: -0.065em;
     }
 
@@ -193,7 +187,6 @@
 
     .hero-tagline {
       margin-top: 24px;
-      color: var(--text);
       font-size: clamp(1.25rem, 2.2vw, 1.75rem);
       font-weight: 550;
       line-height: 1.3;
@@ -209,8 +202,6 @@
       letter-spacing: -0.015em;
     }
 
-    /* Visible email: plain text, not a link. */
-
     .contact-email {
       display: block;
       max-width: 100%;
@@ -222,10 +213,7 @@
       user-select: text;
     }
 
-    /*
-      Future email-link styling.
-      The matching HTML link is commented out below.
-    */
+    /* Styling preserved for the future clickable email. */
 
     .contact-link {
       display: inline-flex;
@@ -237,4 +225,543 @@
       font-size: 0.95rem;
     }
 
-    .contact-link span
+    .contact-link span:first-child {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .link-arrow {
+      flex-shrink: 0;
+    }
+
+    /* ---------- Full-view portrait ---------- */
+
+    .portrait {
+      width: 100%;
+      max-width: 420px;
+      min-width: 0;
+      justify-self: end;
+    }
+
+    /*
+      No fixed height, aspect ratio, clipping, or object-fit: cover.
+      The entire image displays in its original proportions.
+    */
+
+    .portrait-image {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border: 0;
+    }
+
+    /* ---------- Projects ---------- */
+
+    .projects {
+      padding-bottom: clamp(48px, 7vw, 88px);
+    }
+
+    .section-heading {
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+      font-weight: 650;
+      line-height: 1.15;
+      letter-spacing: -0.055em;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: clamp(24px, 3.3vw, 38px);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .app-icon {
+      display: grid;
+      place-items: center;
+      width: 64px;
+      height: 64px;
+      margin-bottom: 28px;
+      border-radius: 17px;
+    }
+
+    .app-icon svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .easylist-icon {
+      background: #e9f5ee;
+      color: #28774a;
+    }
+
+    .tripmate-icon {
+      background: #eaf2ff;
+      color: #2563b9;
+    }
+
+    .project-card h3 {
+      font-size: clamp(1.6rem, 2.6vw, 2rem);
+      font-weight: 650;
+      line-height: 1.2;
+      letter-spacing: -0.045em;
+    }
+
+    .project-description {
+      margin-top: 14px;
+      color: var(--secondary);
+      font-size: 0.98rem;
+      line-height: 1.75;
+    }
+
+    .sample-note {
+      margin-top: 14px;
+      color: var(--secondary);
+      font-size: 0.75rem;
+    }
+
+    .project-links {
+      display: grid;
+      gap: 2px;
+      margin: auto 0 0;
+      padding: 26px 0 0;
+      list-style: none;
+    }
+
+    .project-links li {
+      min-width: 0;
+    }
+
+    /*
+      Resource links remain inactive placeholders.
+      No href="#" or JavaScript is used.
+    */
+
+    .placeholder-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 46px;
+      padding-block: 10px;
+      border-bottom: 1px solid #eeeef1;
+      color: var(--secondary);
+      font-size: 0.87rem;
+      line-height: 1.5;
+      cursor: default;
+    }
+
+    .placeholder-link > span:first-child {
+      min-width: 0;
+    }
+
+    .project-links li:last-child .placeholder-link {
+      border-bottom: 0;
+    }
+
+    .placeholder-arrow {
+      flex-shrink: 0;
+      color: #88888d;
+    }
+
+    /* ---------- Footer ---------- */
+
+    .footer-inner {
+      padding-block: 24px 30px;
+      border-top: 1px solid var(--border);
+      color: var(--secondary);
+      font-size: 0.75rem;
+    }
+
+    /* ---------- Tablets and compact laptops ---------- */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns:
+          minmax(0, 1.15fr)
+          minmax(0, 0.85fr);
+        gap: 32px;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 6vw, 4rem);
+      }
+
+      .project-grid {
+        gap: 20px;
+      }
+    }
+
+    /* ---------- Phones and narrow tablet windows ---------- */
+
+    @media (max-width: 700px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+        padding-block: 42px 50px;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 10vw, 4.3rem);
+      }
+
+      .hero-description {
+        max-width: 58ch;
+      }
+
+      .portrait {
+        width: min(100%, 360px);
+        justify-self: center;
+      }
+
+      .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .section-heading {
+        margin-bottom: 22px;
+      }
+
+      .project-card {
+        padding: 28px;
+      }
+    }
+
+    /* ---------- Narrow phones ---------- */
+
+    @media (max-width: 380px) {
+      .header-inner {
+        min-height: 82px;
+        padding-block: 16px;
+      }
+
+      h1 {
+        font-size: clamp(2.35rem, 10vw, 2.8rem);
+        letter-spacing: -0.06em;
+      }
+
+      .hero-tagline {
+        font-size: 1.2rem;
+      }
+
+      .project-card {
+        padding: 22px;
+      }
+
+      .contact-email {
+        font-size: 0.87rem;
+      }
+    }
+
+    /* ---------- Very narrow windows ---------- */
+
+    @media (max-width: 320px) {
+      .container {
+        width: calc(100% - 24px);
+      }
+
+      .project-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">
+    Skip to content
+  </a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-identity">
+        <p class="site-name">Varun Patel</p>
+        <p class="header-caption">Independent Developer</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+
+    <!-- Introduction and full-view portrait -->
+    <section class="hero" aria-labelledby="intro-title">
+
+      <div class="hero-copy">
+        <h1 id="intro-title">
+          <span class="intro-line">Hi, I am</span>
+          <span class="intro-line">Varun Patel.</span>
+        </h1>
+
+        <p class="hero-tagline">
+          Learning to code. Bringing ideas to life.
+        </p>
+
+        <p class="hero-description">
+          I’m a solo, self-taught coding learner building
+          iOS apps with the latest Xcode. I use ChatGPT,
+          GitHub Copilot, Perplexity, and Claude to help
+          me learn, explore ideas, and work through challenges.
+        </p>
+
+        <!-- Current email display: plain text, not clickable. -->
+        <p class="contact-email">
+          vickypatel.13@gmail.com
+        </p>
+
+        <!--
+          FUTURE CLICKABLE EMAIL
+
+          To enable:
+          1. Remove the plain-text email paragraph above.
+          2. Uncomment the anchor below.
+
+          <a
+            class="contact-link"
+            href="mailto:vickypatel.13@gmail.com"
+          >
+            <span>vickypatel.13@gmail.com</span>
+            <span class="link-arrow" aria-hidden="true">↗</span>
+          </a>
+        -->
+      </div>
+
+      <!--
+        Keep this image beside index.html.
+        The entire image is displayed without cropping.
+      -->
+      <figure class="portrait">
+        <img
+          class="portrait-image"
+          src="./varun_patel_it_professional_avatar.png"
+          alt="Avatar of Varun Patel"
+          decoding="async"
+          fetchpriority="high"
+        >
+      </figure>
+
+    </section>
+
+    <!-- Projects -->
+    <section class="projects" aria-labelledby="projects-title">
+
+      <div class="section-heading">
+        <h2 id="projects-title">Projects in progress.</h2>
+      </div>
+
+      <div class="project-grid">
+
+        <!-- EasyListApp -->
+        <article
+          class="project-card"
+          aria-labelledby="easylist-title"
+        >
+          <div class="app-icon easylist-icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 9L7 11L11 6"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16 9H27M16 17H27M16 25H27"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M5 17L7 19L11 14M5 25L7 27L11 22"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <h3 id="easylist-title">EasyListApp</h3>
+
+          <!-- Sample details: replace when ready. -->
+          <p class="project-description">
+            A simple place for everyday lists. Organize
+            groceries, keep track of tasks, and check things
+            off with a clean, distraction-free experience.
+          </p>
+
+          <p class="sample-note">
+            Sample description · Details coming soon
+          </p>
+
+          <!-- Inactive resource placeholders. -->
+          <ul
+            class="project-links"
+            aria-label="EasyListApp resources"
+          >
+            <li>
+              <span
+                class="placeholder-link"
+                role="link"
+                aria-disabled="true"
+              >
+                <span>Project Documentation</span>
+                <span
+                  class="placeholder-arrow"
+                  aria-hidden="true"
+                >↗</span>
+              </span>
+            </li>
+
+            <li>
+              <span
+                class="placeholder-link"
+                role="link"
+                aria-disabled="true"
+              >
+                <span>Privacy Policy</span>
+                <span
+                  class="placeholder-arrow"
+                  aria-hidden="true"
+                >↗</span>
+              </span>
+            </li>
+
+            <li>
+              <span
+                class="placeholder-link"
+                role="link"
+                aria-disabled="true"
+              >
+                <span>Terms of Use</span>
+                <span
+                  class="placeholder-arrow"
+                  aria-hidden="true"
+                >↗</span>
+              </span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Trip Mate -->
+        <article
+          class="project-card"
+          aria-labelledby="tripmate-title"
+        >
+          <div class="app-icon tripmate-icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 28C16 28 25 19 25 12C25 7.03 20.97 3 16 3C11.03 3 7 7.03 7 12C7 19 16 28 16 28Z"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <circle
+                cx="16"
+                cy="12"
+                r="3.2"
+                stroke="currentColor"
+                stroke-width="2.2"
+              />
+            </svg>
+          </div>
+
+          <h3 id="tripmate-title">Trip Mate</h3>
+
+          <!-- Sample details: replace when ready. -->
+          <p class="project-description">
+            A little less planning. A little more exploring.
+            Keep trip ideas, daily plans, and packing lists
+            together in one simple travel companion.
+          </p>
+
+          <p class="sample-note">
+            Sample description · Details coming soon
+          </p>
+
+          <!-- Inactive resource placeholders. -->
+          <ul
+            class="project-links"
+            aria-label="Trip Mate resources"
+          >
+            <li>
+              <span
+                class="placeholder-link"
+                role="link"
+                aria-disabled="true"
+              >
+                <span>Project Documentation</span>
+                <span
+                  class="placeholder-arrow"
+                  aria-hidden="true"
+                >↗</span>
+              </span>
+            </li>
+
+            <li>
+              <span
+                class="placeholder-link"
+                role="link"
+                aria-disabled="true"
+              >
+                <span>Privacy Policy</span>
+                <span
+                  class="placeholder-arrow"
+                  aria-hidden="true"
+                >↗</span>
+              </span>
+            </li>
+
+            <li>
+              <span
+                class="placeholder-link"
+                role="link"
+                aria-disabled="true"
+              >
+                <span>Terms of Use</span>
+                <span
+                  class="placeholder-arrow"
+                  aria-hidden="true"
+                >↗</span>
+              </span>
+            </li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <p>© 2026 Varun Patel.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
