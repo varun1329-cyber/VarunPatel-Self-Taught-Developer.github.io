@@ -10,155 +10,161 @@
 
   <meta
     name="description"
-    content="Meet Varun Patel, a solo, self-taught coding learner building iOS apps with the latest Xcode and learning with ChatGPT, GitHub Copilot, Perplexity, and Claude."
+    content="Varun Patel — a solo, self-taught coding learner building iOS apps with Xcode and AI-assisted tools."
   >
 
-  <meta name="theme-color" content="#f7f7f2">
+  <meta name="theme-color" content="#f5f5f7">
   <meta name="color-scheme" content="light">
 
-  <title>Varun Patel — Self-Taught Developer</title>
+  <title>Varun Patel | Independent Developer</title>
 
   <style>
-    /* ---------- Design settings ---------- */
+    /* ==============================
+       Theme
+       ============================== */
 
     :root {
-      --paper: #f7f7f2;
-      --ink: #22251f;
-      --muted: #62675d;
-      --line: #d9ddd2;
-      --accent: #365a40;
-      --accent-light: #e8eee3;
-      --white: #ffffff;
-      --width: 1100px;
+      --background: #f5f5f7;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --secondary: #626267;
+      --border: #dedee3;
+      --blue: #0066cc;
+      --content-width: 1080px;
+      --radius: 28px;
     }
 
-    /* ---------- Base ---------- */
+    /* ==============================
+       Base
+       ============================== */
 
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
     html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 32px;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body {
       margin: 0;
-      background: var(--paper);
-      color: var(--ink);
+      min-width: 0;
+      background: var(--background);
+      color: var(--text);
       font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
+        Helvetica,
+        Arial,
         sans-serif;
       font-size: 16px;
-      line-height: 1.7;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-wrap: anywhere;
     }
 
     ::selection {
-      background: var(--accent);
-      color: var(--white);
+      background: #d5e8ff;
+      color: var(--text);
     }
 
     a {
-      color: inherit;
+      color: var(--blue);
       text-decoration: none;
     }
 
-    a:focus-visible,
-    summary:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 6px;
-      border-radius: 2px;
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
-    img {
-      max-width: 100%;
+    a:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 6px;
+      border-radius: 4px;
     }
 
     h1,
     h2,
     h3,
     p {
-      margin-top: 0;
+      margin: 0;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
     }
 
     .container {
-      width: min(var(--width), calc(100% - 64px));
+      width: min(
+        var(--content-width),
+        calc(100% - clamp(32px, 6vw, 80px))
+      );
       margin-inline: auto;
     }
 
     .skip-link {
       position: absolute;
       top: -100px;
-      left: 20px;
+      left: 16px;
       z-index: 100;
       padding: 10px 16px;
-      background: var(--ink);
-      color: var(--white);
+      border-radius: 8px;
+      background: var(--text);
+      color: var(--surface);
     }
 
     .skip-link:focus {
-      top: 16px;
+      top: 12px;
     }
 
-    /* ---------- Header ---------- */
+    /* ==============================
+       Header
+       ============================== */
+
+    .site-header {
+      background: rgba(255, 255, 255, 0.8);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
 
     .header-inner {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      min-height: 104px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .wordmark {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      white-space: nowrap;
-    }
-
-    .wordmark span {
-      color: var(--accent);
-    }
-
-    .navigation {
-      display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 8px 26px;
+      gap: 8px 24px;
+      min-height: 72px;
+      padding-block: 14px;
     }
 
-    .navigation a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      color: var(--muted);
-      font-size: 0.85rem;
-      transition: color 160ms ease;
+    .site-name {
+      color: var(--text);
+      font-size: 1.08rem;
+      font-weight: 650;
+      letter-spacing: -0.035em;
     }
 
-    .navigation a:hover {
-      color: var(--accent);
+    .header-caption {
+      color: var(--secondary);
+      font-size: 0.8rem;
     }
 
-    /* ---------- Landing page ---------- */
+    /* ==============================
+       Introduction
+       ============================== */
 
     .hero {
-      padding: 76px 0 50px;
-    }
-
-    .hero-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(220px, 310px);
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 330px);
       align-items: center;
-      gap: 64px;
+      gap: clamp(32px, 6vw, 88px);
+      padding-block: clamp(48px, 8vw, 100px);
     }
 
     .hero-copy {
@@ -166,882 +172,542 @@
     }
 
     .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0 0 28px;
-      color: var(--accent);
-      font-family:
-        ui-monospace,
-        SFMono-Regular,
-        Menlo,
-        Consolas,
-        monospace;
-      font-size: 0.71rem;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      flex: 0 0 7px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-
-    .hero-name {
-      margin: 0 0 20px;
-      color: var(--muted);
-      font-size: 1.02rem;
-      font-weight: 500;
-      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: var(--secondary);
+      font-size: 0.9rem;
+      font-weight: 550;
+      letter-spacing: -0.015em;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(3rem, 6.6vw, 5.4rem);
-      font-weight: 550;
-      line-height: 1.04;
-      letter-spacing: -0.07em;
-    }
-
-    .serif {
-      color: var(--accent);
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 400;
-      font-style: italic;
+      max-width: 12ch;
+      font-size: clamp(2.7rem, 5.8vw, 4.7rem);
+      font-weight: 650;
+      line-height: 1.07;
       letter-spacing: -0.065em;
     }
 
-    .hero-introduction {
-      max-width: 590px;
-      margin: 26px 0 0;
-      color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.85;
+    .hero-description {
+      max-width: 530px;
+      margin-top: 24px;
+      color: var(--secondary);
+      font-size: clamp(1rem, 1.6vw, 1.17rem);
+      line-height: 1.75;
+      letter-spacing: -0.015em;
     }
 
-    .hero-introduction + .hero-introduction {
-      margin-top: 16px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      gap: 14px 26px;
-      margin-top: 30px;
-    }
-
-    .text-link {
+    .contact-link {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
+      max-width: 100%;
       min-height: 44px;
-      padding-block: 6px;
-      border-bottom: 1px solid var(--ink);
-      font-size: 0.88rem;
-      font-weight: 600;
-      transition:
-        color 160ms ease,
-        border-color 160ms ease;
+      margin-top: 22px;
+      font-size: 0.95rem;
     }
 
-    .text-link:hover {
-      color: var(--accent);
-      border-color: var(--accent);
+    .contact-link span:first-child {
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
 
-    .arrow {
-      font-weight: 400;
+    .link-arrow {
+      flex-shrink: 0;
     }
 
-    /* ---------- Avatar ---------- */
+    /* ==============================
+       Portrait
+       ============================== */
 
     .portrait {
       width: 100%;
-      max-width: 310px;
+      max-width: 330px;
       margin: 0;
       justify-self: end;
     }
 
     .portrait-frame {
-      padding: 10px;
-      border: 1px solid var(--line);
-      border-radius: 160px 160px 12px 12px;
-      background: var(--accent-light);
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 32px;
+      background: #e9e9ed;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
     }
 
     .portrait-image {
-      display: block;
       width: 100%;
-      height: auto;
-      border-radius: 150px 150px 6px 6px;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
     }
 
-    .portrait figcaption {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 6px 14px;
-      margin-top: 16px;
-      color: var(--muted);
-      font-family:
-        ui-monospace,
-        SFMono-Regular,
-        Menlo,
-        Consolas,
-        monospace;
-      font-size: 0.68rem;
-      line-height: 1.6;
+    /* ==============================
+       Projects
+       ============================== */
+
+    .projects {
+      padding-bottom: clamp(48px, 7vw, 88px);
     }
 
-    .portrait-caption-note {
-      color: var(--accent);
+    .section-heading {
+      margin-bottom: 26px;
     }
 
-    .hero-footnote {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 12px 24px;
-      margin-top: 54px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-family:
-        ui-monospace,
-        SFMono-Regular,
-        Menlo,
-        Consolas,
-        monospace;
-      font-size: 0.7rem;
-      line-height: 1.8;
-    }
-
-    .hero-footnote p {
-      margin: 0;
-    }
-
-    /* ---------- Shared section layout ---------- */
-
-    .section {
-      display: grid;
-      grid-template-columns: 180px minmax(0, 1fr);
-      gap: 48px;
-      padding: 58px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-label {
-      display: flex;
-      gap: 12px;
-      align-items: baseline;
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 0.8rem;
-      font-weight: 500;
-      line-height: 1.6;
-    }
-
-    .section-number {
-      color: var(--accent);
-      font-family: ui-monospace, monospace;
-      font-size: 0.72rem;
-    }
-
-    .section-content {
-      min-width: 0;
-    }
-
-    .section-title {
-      margin-bottom: 24px;
-      font-size: clamp(1.8rem, 3.4vw, 2.7rem);
-      font-weight: 500;
-      line-height: 1.2;
+    h2 {
+      font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+      font-weight: 650;
+      line-height: 1.15;
       letter-spacing: -0.055em;
     }
 
-    .body-copy {
-      max-width: 660px;
-      color: var(--muted);
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
     }
 
-    .body-copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* ---------- Project ---------- */
-
-    .project {
-      padding: 30px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.35);
-    }
-
-    .project-top {
+    .project-card {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 30px;
+      flex-direction: column;
+      min-width: 0;
+      padding: clamp(24px, 3.3vw, 38px);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      border-radius: var(--radius);
+      background: var(--surface);
     }
 
-    .project-type {
-      color: var(--muted);
-      font-family: ui-monospace, monospace;
-      font-size: 0.73rem;
+    .app-icon {
+      display: grid;
+      place-items: center;
+      width: 64px;
+      height: 64px;
+      margin-bottom: 28px;
+      border-radius: 17px;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: var(--accent-light);
-      color: var(--accent);
-      font-size: 0.7rem;
-      line-height: 1.5;
+    .app-icon svg {
+      width: 34px;
+      height: 34px;
     }
 
-    .badge::before {
-      content: "";
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: currentColor;
+    .easylist-icon {
+      background: #e9f5ee;
+      color: #28774a;
     }
 
-    .project h3 {
-      margin-bottom: 12px;
-      font-size: 1.7rem;
-      font-weight: 500;
+    .tripmate-icon {
+      background: #eaf2ff;
+      color: #2563b9;
+    }
+
+    .project-card h3 {
+      font-size: clamp(1.6rem, 2.6vw, 2rem);
+      font-weight: 650;
       line-height: 1.2;
-      letter-spacing: -0.05em;
+      letter-spacing: -0.045em;
     }
 
     .project-description {
-      max-width: 580px;
-      margin-bottom: 24px;
-      color: var(--muted);
-      font-size: 0.95rem;
+      margin-top: 14px;
+      color: var(--secondary);
+      font-size: 0.98rem;
+      line-height: 1.75;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 18px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .tags li {
-      color: var(--accent);
-      font-family: ui-monospace, monospace;
-      font-size: 0.72rem;
-    }
-
-    .project-notes {
-      margin-top: 26px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-    }
-
-    .project-notes summary {
-      width: fit-content;
-      color: var(--ink);
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-
-    .project-notes p {
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    /* ---------- Learning approach ---------- */
-
-    .process-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .process-item {
-      display: grid;
-      grid-template-columns: 32px minmax(0, 1fr);
-      gap: 16px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .process-item:first-child {
-      padding-top: 0;
-    }
-
-    .process-item:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .process-symbol {
-      padding-top: 2px;
-      color: var(--accent);
-      font-family: ui-monospace, monospace;
-      font-size: 0.85rem;
-    }
-
-    .process-item h3 {
-      margin-bottom: 6px;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: -0.025em;
-    }
-
-    .process-item p {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .tools {
-      margin: 28px 0 0;
-      color: var(--muted);
-      font-family: ui-monospace, monospace;
-      font-size: 0.73rem;
-      line-height: 2;
-    }
-
-    /* ---------- Contact ---------- */
-
-    .contact-copy {
-      max-width: 540px;
-      margin-bottom: 24px;
-      color: var(--muted);
-    }
-
-    .email-link {
-      display: inline-block;
-      padding-block: 6px 8px;
-      border-bottom: 1px solid var(--line);
-      color: var(--accent);
-      font-size: clamp(1.05rem, 3vw, 1.8rem);
-      line-height: 1.5;
-      letter-spacing: -0.04em;
-      transition: border-color 160ms ease;
-    }
-
-    .email-link:hover {
-      border-color: var(--accent);
-    }
-
-    .contact-links {
-      margin-top: 22px;
-    }
-
-    .contact-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      min-height: 44px;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    .contact-links a:hover {
-      color: var(--accent);
-    }
-
-    /* ---------- Footer ---------- */
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px 24px;
-      padding: 28px 0 36px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
+    .sample-note {
+      margin-top: 14px;
+      color: var(--secondary);
       font-size: 0.75rem;
     }
 
-    .footer-inner p {
-      margin: 0;
+    .project-links {
+      display: grid;
+      gap: 2px;
+      margin: auto 0 0;
+      padding: 26px 0 0;
+      list-style: none;
     }
 
-    .footer-inner a {
-      display: inline-flex;
+    .project-links li {
+      min-width: 0;
+    }
+
+    /*
+      These are deliberately inactive link placeholders.
+      Replace each span with an anchor when its page exists.
+    */
+
+    .placeholder-link {
+      display: flex;
       align-items: center;
-      min-height: 44px;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 46px;
+      padding-block: 10px;
+      border-bottom: 1px solid #eeeeF1;
+      color: var(--secondary);
+      font-size: 0.87rem;
+      line-height: 1.5;
+      cursor: default;
     }
 
-    .footer-inner a:hover {
-      color: var(--accent);
+    .placeholder-link > span:first-child {
+      min-width: 0;
     }
 
-    /* ---------- Tablet ---------- */
+    .project-links li:last-child .placeholder-link {
+      border-bottom: 0;
+    }
+
+    .placeholder-arrow {
+      flex-shrink: 0;
+      color: #88888d;
+    }
+
+    /* ==============================
+       Footer
+       ============================== */
+
+    .footer-inner {
+      padding-block: 24px 30px;
+      border-top: 1px solid var(--border);
+      color: var(--secondary);
+      font-size: 0.75rem;
+    }
+
+    /* ==============================
+       Tablet
+       ============================== */
 
     @media (max-width: 850px) {
       .hero {
-        padding-top: 60px;
-      }
-
-      .hero-layout {
-        grid-template-columns: minmax(0, 1fr) 230px;
+        grid-template-columns: minmax(0, 1fr) 250px;
         gap: 32px;
       }
 
       h1 {
-        font-size: clamp(2.8rem, 6.5vw, 4.4rem);
+        font-size: clamp(2.6rem, 5.8vw, 3.6rem);
       }
 
-      .section {
-        grid-template-columns: 140px minmax(0, 1fr);
-        gap: 28px;
+      .project-grid {
+        gap: 18px;
       }
     }
 
-    /* ---------- Small tablet and mobile ---------- */
+    /* ==============================
+       Mobile
+       ============================== */
 
-    @media (max-width: 650px) {
-      .container {
-        width: calc(100% - 40px);
-      }
-
-      .header-inner {
-        min-height: 88px;
-        gap: 16px;
-      }
-
-      .wordmark {
-        font-size: 0.92rem;
-      }
-
-      .navigation {
-        gap: 6px 16px;
-      }
-
-      .navigation a {
-        font-size: 0.78rem;
-      }
-
+    @media (max-width: 680px) {
       .hero {
-        padding: 48px 0 36px;
-      }
-
-      .hero-layout {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
-
-      .eyebrow {
-        margin-bottom: 24px;
-        font-size: 0.64rem;
-        letter-spacing: 0.04em;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+        padding-block: 44px 52px;
       }
 
       h1 {
-        font-size: clamp(2.8rem, 11vw, 4.2rem);
+        max-width: 14ch;
+        font-size: clamp(2.6rem, 10vw, 3.8rem);
       }
 
-      .hero-introduction {
-        font-size: 1rem;
+      .hero-description {
+        max-width: 55ch;
       }
 
       .portrait {
-        width: min(100%, 260px);
-        justify-self: start;
+        width: min(100%, 290px);
+        justify-self: center;
       }
 
-      .hero-footnote {
-        margin-top: 36px;
+      .portrait-frame {
+        border-radius: 26px;
       }
 
-      .section {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        padding: 38px 0;
+      .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
       }
 
-      .section-label {
-        margin: 0;
+      .project-card {
+        padding: 28px;
       }
 
-      .project {
-        padding: 22px;
-      }
-
-      .project-top {
-        margin-bottom: 24px;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        padding-bottom: 24px;
+      .section-heading {
+        margin-bottom: 22px;
       }
     }
 
-    @media (max-width: 360px) {
+    /* ==============================
+       Narrow phones
+       ============================== */
+
+    @media (max-width: 380px) {
       .header-inner {
         align-items: flex-start;
         justify-content: center;
         flex-direction: column;
-        gap: 4px;
-        padding-block: 14px;
+        gap: 2px;
       }
 
-      .navigation {
-        justify-content: flex-start;
-      }
-    }
-
-    /* ---------- Reduced motion ---------- */
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
+      .header-caption {
+        font-size: 0.75rem;
       }
 
-      *,
-      *::before,
-      *::after {
-        transition: none !important;
+      h1 {
+        font-size: clamp(2.2rem, 10vw, 2.7rem);
+      }
+
+      .project-card {
+        padding: 22px;
+      }
+
+      .portrait {
+        width: min(100%, 250px);
+      }
+
+      .contact-link {
+        font-size: 0.87rem;
       }
     }
   </style>
 </head>
 
-<body id="top">
+<body>
 
   <a class="skip-link" href="#main">
     Skip to content
   </a>
 
-  <!-- Header -->
-  <header>
+  <!-- Header: no duplicate navigation links -->
+  <header class="site-header">
     <div class="container header-inner">
-      <a
-        class="wordmark"
-        href="#top"
-        aria-label="Varun Patel — home"
-      >
-        Varun Patel<span>.</span>
-      </a>
-
-      <nav class="navigation" aria-label="Main navigation">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <p class="site-name">Varun Patel</p>
+      <p class="header-caption">Independent developer</p>
     </div>
   </header>
 
   <main id="main" class="container">
 
-    <!-- Landing page introduction -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-layout">
+    <!-- Introduction -->
+    <section class="hero" aria-labelledby="intro-title">
 
-        <div class="hero-copy">
-          <p class="eyebrow">
-            <span class="status-dot" aria-hidden="true"></span>
-            Solo developer · Self-taught learner
-          </p>
+      <div class="hero-copy">
+        <p class="eyebrow">Hi, I’m Varun.</p>
 
-          <p class="hero-name">
-            Hi, I’m Varun Patel.
-          </p>
+        <h1 id="intro-title">
+          Learning to code.<br>
+          Bringing ideas to life.
+        </h1>
 
-          <h1 id="hero-title">
-            Learning to code.<br>
-            <span class="serif">Building my way.</span>
-          </h1>
-
-          <p class="hero-introduction">
-            I’m a solo, self-taught coding learner turning
-            ideas into iOS apps using the latest Xcode.
-            I’m learning by building—one question, one feature,
-            and one small breakthrough at a time.
-          </p>
-
-          <p class="hero-introduction">
-            Along the way, I use ChatGPT, GitHub Copilot,
-            Perplexity, and Claude to help me explore ideas,
-            understand unfamiliar code, and work through
-            development challenges.
-          </p>
-
-          <div class="hero-actions">
-            <a class="text-link" href="#work">
-              Explore my work
-              <span class="arrow" aria-hidden="true">↘</span>
-            </a>
-
-            <a
-              class="text-link"
-              href="mailto:vickypatel.13@gmail.com"
-            >
-              Say hello
-              <span class="arrow" aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
-
-        <figure class="portrait">
-          <div class="portrait-frame">
-            <img
-              class="portrait-image"
-              src="./varun_patel_it_professional_avatar.png"
-              alt="Avatar representing Varun Patel"
-              decoding="async"
-              fetchpriority="high"
-            >
-          </div>
-
-          <figcaption>
-            <span>Varun Patel</span>
-            <span class="portrait-caption-note">
-              Always learning.
-            </span>
-          </figcaption>
-        </figure>
-
-      </div>
-
-      <div class="hero-footnote">
-        <p>My focus / iOS apps · Xcode</p>
-        <p>My approach / Curiosity · Practice · Progress</p>
-      </div>
-    </section>
-
-    <!-- Current project -->
-    <section
-      id="work"
-      class="section"
-      aria-labelledby="work-label"
-    >
-      <h2 id="work-label" class="section-label">
-        <span class="section-number" aria-hidden="true">01</span>
-        Current work
-      </h2>
-
-      <div class="section-content">
-        <article class="project" aria-labelledby="project-title">
-          <div class="project-top">
-            <span class="project-type">An independent project</span>
-            <span class="badge">In development</span>
-          </div>
-
-          <!-- Replace with your app's name when ready. -->
-          <h3 id="project-title">My iOS app.</h3>
-
-          <!-- Replace with your app's specific description. -->
-          <p class="project-description">
-            A hands-on project where learning meets making.
-            I’m turning an idea into an iOS app while building
-            my understanding of how the pieces work together.
-          </p>
-
-          <ul class="tags" aria-label="Project tools and platform">
-            <li>iOS</li>
-            <li>Xcode</li>
-            <li>AI-assisted learning</li>
-          </ul>
-
-          <details class="project-notes">
-            <summary>A note on this project</summary>
-
-            <p>
-              This app is part of my self-taught development
-              journey. This space is for its purpose, features,
-              screenshots, documentation, and progress
-              as they become ready to share.
-            </p>
-          </details>
-        </article>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section
-      id="about"
-      class="section"
-      aria-labelledby="about-label"
-    >
-      <h2 id="about-label" class="section-label">
-        <span class="section-number" aria-hidden="true">02</span>
-        A little about me
-      </h2>
-
-      <div class="section-content">
-        <h3 class="section-title">
-          Self-taught.<br>
-          Still curious.
-        </h3>
-
-        <div class="body-copy">
-          <p>
-            I’m Varun Patel, a solo learner exploring coding
-            through practical projects. My focus is building
-            iOS apps, and Xcode is where I bring those
-            ideas together.
-          </p>
-
-          <p>
-            I use AI tools as learning partners:
-            ChatGPT, GitHub Copilot, Perplexity, and Claude.
-            They help me ask questions, explore approaches,
-            and work through concepts I’m still learning.
-          </p>
-
-          <p>
-            My aim is to move beyond getting code to work
-            and toward understanding why it works.
-            That takes practice, patience, and a willingness
-            to start again when something doesn’t make sense.
-          </p>
-
-          <p>
-            This website is a small record of that journey.
-            No expert claims—just curiosity, ongoing projects,
-            and steady progress.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Learning approach -->
-    <section
-      id="process"
-      class="section"
-      aria-labelledby="process-label"
-    >
-      <h2 id="process-label" class="section-label">
-        <span class="section-number" aria-hidden="true">03</span>
-        How I approach it
-      </h2>
-
-      <div class="section-content">
-        <ol class="process-list">
-
-          <li class="process-item">
-            <span class="process-symbol" aria-hidden="true">
-              01
-            </span>
-
-            <div>
-              <h3>Begin with something small.</h3>
-
-              <p>
-                A clear idea. One screen. One useful feature.
-                Something manageable to build, explore,
-                and understand.
-              </p>
-            </div>
-          </li>
-
-          <li class="process-item">
-            <span class="process-symbol" aria-hidden="true">
-              02
-            </span>
-
-            <div>
-              <h3>Use AI. Stay curious.</h3>
-
-              <p>
-                My goal is to ask better questions, examine
-                the explanations, and understand the code
-                rather than simply collect it.
-              </p>
-            </div>
-          </li>
-
-          <li class="process-item">
-            <span class="process-symbol" aria-hidden="true">
-              03
-            </span>
-
-            <div>
-              <h3>Try, test, and refine.</h3>
-
-              <p>
-                Run the app, notice what doesn’t work,
-                and improve it a little at a time.
-                Each iteration is another chance to learn.
-              </p>
-            </div>
-          </li>
-
-        </ol>
-
-        <p class="tools">
-          My toolkit / Xcode · ChatGPT · GitHub Copilot ·
-          Perplexity · Claude
-        </p>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section
-      id="contact"
-      class="section"
-      aria-labelledby="contact-label"
-    >
-      <h2 id="contact-label" class="section-label">
-        <span class="section-number" aria-hidden="true">04</span>
-        Get in touch
-      </h2>
-
-      <div class="section-content">
-        <h3 class="section-title">
-          A conversation starts<br>
-          with a simple hello.
-        </h3>
-
-        <p class="contact-copy">
-          Feedback, ideas, or a shared interest in learning
-          to build apps—I’d be happy to hear from you.
+        <p class="hero-description">
+          I’m a solo, self-taught coding learner building
+          iOS apps with the latest Xcode. I use ChatGPT,
+          GitHub Copilot, Perplexity, and Claude to help
+          me learn, explore ideas, and work through challenges.
         </p>
 
         <a
-          class="email-link"
+          class="contact-link"
           href="mailto:vickypatel.13@gmail.com"
         >
-          vickypatel.13@gmail.com
+          <span>vickypatel.13@gmail.com</span>
+          <span class="link-arrow" aria-hidden="true">↗</span>
         </a>
+      </div>
 
-        <div class="contact-links">
-          <a href="https://github.com/varun1329-cyber">
-            Find me on GitHub
-            <span aria-hidden="true">↗</span>
-          </a>
+      <!-- Keep this image in the same folder as index.html. -->
+      <figure class="portrait">
+        <div class="portrait-frame">
+          <img
+            class="portrait-image"
+            src="./varun_patel_it_professional_avatar.png"
+            alt="Avatar of Varun Patel"
+            decoding="async"
+            fetchpriority="high"
+          >
         </div>
+      </figure>
+
+    </section>
+
+    <!-- Project placeholders -->
+    <section class="projects" aria-labelledby="projects-title">
+
+      <div class="section-heading">
+        <h2 id="projects-title">Projects in progress.</h2>
+      </div>
+
+      <div class="project-grid">
+
+        <!-- EasyListApp -->
+        <article class="project-card" aria-labelledby="easylist-title">
+
+          <div class="app-icon easylist-icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 9L7 11L11 6"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16 9H27M16 17H27M16 25H27"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M5 17L7 19L11 14M5 25L7 27L11 22"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <h3 id="easylist-title">EasyListApp</h3>
+
+          <!-- Sample description: replace with real app details. -->
+          <p class="project-description">
+            A simple place for everyday lists. Organize
+            groceries, keep track of tasks, and check things
+            off with a clean, distraction-free experience.
+          </p>
+
+          <p class="sample-note">
+            Sample description · Details coming soon
+          </p>
+
+          <!-- Inactive placeholders: no navigation yet. -->
+          <ul class="project-links" aria-label="EasyListApp resources">
+            <li>
+              <span
+                class="placeholder-link"
+                role="link"
+                aria-disabled="true"
+              >
+                <span>Project Documentation</span>
+                <span class="placeholder-arrow" aria-hidden="true">↗</span>
+              </span>
+            </li>
+
+            <li>
+              <span
+                class="placeholder-link"
+                role="link"
+                aria-disabled="true"
+              >
+                <span>Privacy Policy</span>
+                <span class="placeholder-arrow" aria-hidden="true">↗</span>
+              </span>
+            </li>
+
+            <li>
+              <span
+                class="placeholder-link"
+                role="link"
+                aria-disabled="true"
+              >
+                <span>Terms of Use</span>
+                <span class="placeholder-arrow" aria-hidden="true">↗</span>
+              </span>
+            </li>
+          </ul>
+
+        </article>
+
+        <!-- Trip Mate -->
+        <article class="project-card" aria-labelledby="tripmate-title">
+
+          <div class="app-icon tripmate-icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 28C16 28 25 19 25 12C25 7.03 20.97 3 16 3C11.03 3 7 7.03 7 12C7 19 16 28 16 28Z"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <circle
+                cx="16"
+                cy="12"
+                r="3.2"
+                stroke="currentColor"
+                stroke-width="2.2"
+              />
+            </svg>
+          </div>
+
+          <h3 id="tripmate-title">Trip Mate</h3>
+
+          <!-- Sample description: replace with real app details. -->
+          <p class="project-description">
+            A little less planning. A little more exploring.
+            Keep trip ideas, daily plans, and packing lists
+            together in one simple travel companion.
+          </p>
+
+          <p class="sample-note">
+            Sample description · Details coming soon
+          </p>
+
+          <!-- Inactive placeholders: no navigation yet. -->
+          <ul class="project-links" aria-label="Trip Mate resources">
+            <li>
+              <span
+                class="placeholder-link"
+                role="link"
+                aria-disabled="true"
+              >
+                <span>Project Documentation</span>
+                <span class="placeholder-arrow" aria-hidden="true">↗</span>
+              </span>
+            </li>
+
+            <li>
+              <span
+                class="placeholder-link"
+                role="link"
+                aria-disabled="true"
+              >
+                <span>Privacy Policy</span>
+                <span class="placeholder-arrow" aria-hidden="true">↗</span>
+              </span>
+            </li>
+
+            <li>
+              <span
+                class="placeholder-link"
+                role="link"
+                aria-disabled="true"
+              >
+                <span>Terms of Use</span>
+                <span class="placeholder-arrow" aria-hidden="true">↗</span>
+              </span>
+            </li>
+          </ul>
+
+        </article>
+
       </div>
     </section>
 
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="container footer-inner">
       <p>© 2026 Varun Patel.</p>
-
-      <p>
-        A small corner of the internet.
-        A work in progress.
-      </p>
-
-      <a href="#top">
-        Back to top ↑
-      </a>
     </div>
   </footer>
 
