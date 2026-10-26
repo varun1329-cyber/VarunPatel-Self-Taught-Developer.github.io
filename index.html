@@ -34,11 +34,7 @@
       --radius: 28px;
     }
 
-    /* Base */
-
-    *,
-    *::before,
-    *::after {
+    * {
       box-sizing: border-box;
     }
 
@@ -55,24 +51,14 @@
       margin: 0;
       background: var(--background);
       color: var(--text);
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Helvetica,
-        Arial,
-        sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-wrap: anywhere;
     }
 
-    h1,
-    h2,
-    h3,
-    p,
-    figure {
+    h1, h2, h3, p, figure {
       margin: 0;
     }
 
@@ -103,10 +89,7 @@
     }
 
     .container {
-      width: min(
-        var(--content-width),
-        calc(100% - clamp(32px, 6vw, 80px))
-      );
+      width: min(var(--content-width), calc(100% - clamp(32px, 6vw, 80px)));
       margin-inline: auto;
     }
 
@@ -128,8 +111,6 @@
     .skip-link:focus {
       top: 12px;
     }
-
-    /* Header */
 
     .site-header {
       position: sticky;
@@ -187,26 +168,12 @@
       color: var(--blue);
     }
 
-    /* Introduction */
-
     .hero {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      align-items: stretch;
-      gap: 24px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.85fr);
+      align-items: center;
+      gap: clamp(32px, 5vw, 72px);
       padding-block: clamp(44px, 7vw, 88px);
-    }
-
-    .hero-panel {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-width: 0;
-      min-height: 100%;
-      padding: clamp(24px, 3.3vw, 38px);
-      border: 1px solid rgba(0, 0, 0, 0.04);
-      border-radius: var(--radius);
-      background: #ffffff;
     }
 
     .hero-copy {
@@ -214,10 +181,10 @@
     }
 
     h1 {
-      font-size: clamp(2rem, 2.7vw, 2.8rem);
+      font-size: clamp(3rem, 6.1vw, 5.1rem);
       font-weight: 650;
-      line-height: 1.12;
-      letter-spacing: -0.055em;
+      line-height: 1.07;
+      letter-spacing: -0.065em;
     }
 
     .intro-line {
@@ -226,10 +193,10 @@
 
     .hero-tagline {
       margin-top: 24px;
-      font-size: clamp(1.1rem, 1.7vw, 1.5rem);
+      font-size: clamp(1.25rem, 2.2vw, 1.75rem);
       font-weight: 550;
       line-height: 1.3;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
     }
 
     .hero-description {
@@ -249,8 +216,6 @@
       user-select: text;
     }
 
-    /* Preserved for future email-link activation. */
-
     .contact-link {
       display: inline-flex;
       align-items: center;
@@ -261,47 +226,35 @@
       font-size: 0.95rem;
     }
 
-    /* Full-view portrait without cropping */
-
     .portrait {
+      width: 100%;
+      max-width: 420px;
+      min-width: 0;
+      justify-self: end;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      max-width: 100%;
-      min-width: 0;
-      justify-self: stretch;
-      overflow: hidden;
-      padding: 0;
-      background: transparent;
-      border: 0;
       gap: 12px;
     }
 
     .portrait-image {
-      display: block;
       width: 100%;
       max-width: 100%;
       height: auto;
-      margin: 0 auto;
       border: 0;
-      border-radius: var(--radius);
-      object-fit: contain;
-      background: #f6f7f9;
+      border-radius: 24px;
     }
 
     .image-tagline {
-      margin-top: 0;
-      color: var(--secondary);
       font-size: clamp(1.1rem, 1.7vw, 1.5rem);
       font-weight: 550;
       line-height: 1.3;
       letter-spacing: -0.03em;
+      color: var(--secondary);
       text-align: center;
+      margin-top: 0;
     }
-
-    /* Projects */
 
     .projects {
       padding-bottom: clamp(48px, 7vw, 88px);
@@ -333,8 +286,6 @@
       border-radius: var(--radius);
       background: #ffffff;
     }
-
-    /* Icon and project name share one row. */
 
     .project-heading {
       display: flex;
@@ -374,8 +325,6 @@
       line-height: 1.2;
       letter-spacing: -0.045em;
     }
-
-    /* Link sits below the icon-and-title row. */
 
     .explore-link {
       display: inline-flex;
@@ -444,8 +393,6 @@
       border-bottom: 0;
     }
 
-    /* Footer */
-
     .footer-inner {
       padding-block: 24px 30px;
       border-top: 1px solid var(--border);
@@ -453,24 +400,20 @@
       font-size: 0.75rem;
     }
 
-    /* Tablets and compact laptops */
-
     @media (max-width: 900px) {
       .hero {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+        gap: 32px;
       }
 
       h1 {
-        font-size: clamp(1.9rem, 2.7vw, 2.5rem);
+        font-size: clamp(2.8rem, 6vw, 4rem);
       }
 
       .project-grid {
         gap: 20px;
       }
     }
-
-    /* Phones and narrow tablet windows */
 
     @media (max-width: 700px) {
       .header-inner {
@@ -487,21 +430,17 @@
 
       .hero {
         grid-template-columns: minmax(0, 1fr);
-        gap: 20px;
+        gap: 32px;
         padding-block: 42px 50px;
       }
 
       h1 {
-        font-size: clamp(2.2rem, 8vw, 3rem);
+        font-size: clamp(2.8rem, 10vw, 4.3rem);
       }
 
       .portrait {
-        width: min(100%, 500px);
+        width: min(100%, 360px);
         justify-self: center;
-      }
-
-      .portrait-image {
-        min-height: 320px;
       }
 
       .project-grid {
@@ -512,65 +451,26 @@
         margin-bottom: 22px;
       }
 
-      .project-card,
-      .hero-panel {
+      .project-card {
         padding: 28px;
       }
     }
 
-    /* Narrow phones */
-
     @media (max-width: 380px) {
       h1 {
-        font-size: clamp(2rem, 7vw, 2.5rem);
+        font-size: clamp(2.35rem, 10vw, 2.8rem);
       }
 
       .hero-tagline {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
       }
 
-      .project-card,
-      .hero-panel {
+      .project-card {
         padding: 22px;
       }
 
       .project-heading {
         gap: 12px;
-      }
-
-      .app-icon {
-        flex-basis: 52px;
-        width: 52px;
-        height: 52px;
-        border-radius: 14px;
-      }
-
-      .app-icon svg {
-        width: 29px;
-        height: 29px;
-      }
-
-      .project-card h3 {
-        font-size: 1.45rem;
-      }
-
-      .contact-email {
-        font-size: 0.87rem;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .container {
-        width: calc(100% - 24px);
-      }
-
-      .project-card,
-      .hero-panel {
-        padding: 18px;
-      }
-
-      .project-card h3 {
-        font-size: 1.3rem;
       }
     }
   </style>
@@ -595,45 +495,23 @@
   </header>
 
   <main id="main" class="container">
-
-    <!-- Introduction -->
     <section class="hero" aria-labelledby="intro-title">
-      <div class="hero-panel hero-copy">
+      <div class="hero-copy">
         <h1 id="intro-title">
           <span class="intro-line">Hi, I am</span>
           <span class="intro-line">Varun Patel.</span>
         </h1>
 
         <p class="hero-description">
-          I’m a solo, self-taught coding learner building
-          iOS apps with the latest Xcode. I use ChatGPT,
-          GitHub Copilot, Perplexity, and Claude to help
-          me learn, explore ideas, and work through challenges.
+          I’m a solo, self-taught coding learner building iOS apps with the latest Xcode.
+          I use ChatGPT, GitHub Copilot, Perplexity, and Claude to help me learn, explore ideas,
+          and work through challenges.
         </p>
 
-        <!-- Visible email is intentionally not clickable. -->
-        <p class="contact-email">
-          varun1329@icloud.com [Apple Account]
-        </p>
-
-        <!--
-          FUTURE CLICKABLE EMAIL
-
-          Remove the plain-text email paragraph above,
-          then uncomment this link when ready.
-
-          <a
-            class="contact-link"
-            href="mailto:vickypatel.13@gmail.com"
-          >
-            <span>vickypatel.13@gmail.com</span>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </a>
-        -->
+        <p class="contact-email">varun1329@icloud.com [Apple Account]</p>
       </div>
 
-      <!-- Entire image displays in its original proportions. -->
-      <figure class="hero-panel portrait">
+      <figure class="portrait">
         <img
           class="portrait-image"
           src="./Gemini_Generated_Image_y3924jy3924jy392.jpg"
@@ -645,98 +523,51 @@
       </figure>
     </section>
 
-    <!-- Projects -->
     <section class="projects" aria-labelledby="projects-title">
       <div class="section-heading">
         <h2 id="projects-title">Projects in progress.</h2>
       </div>
 
       <div class="project-grid">
-
-        <!-- EasyListApp -->
-        <article
-          class="project-card"
-          aria-labelledby="easylist-title"
-        >
+        <article class="project-card" aria-labelledby="easylist-title">
           <div class="project-heading">
             <div class="app-icon easylist-icon" aria-hidden="true">
-              <svg
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 9L7 11L11 6M5 17L7 19L11 14M5 25L7 27L11 22"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M16 9H27M16 17H27M16 25H27"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                />
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 9L7 11L11 6M5 17L7 19L11 14M5 25L7 27L11 22" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 9H27M16 17H27M16 25H27" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
               </svg>
             </div>
-
             <h3 id="easylist-title">EasyListApp</h3>
           </div>
 
-          <!-- Opens your existing landing page in the same tab. -->
-          <a
-            class="explore-link"
-            href="./EasyListApp_LandingPage.html"
-            target="_self"
-          >
+          <a class="explore-link" href="./EasyListApp_LandingPage.html" target="_self">
             Explore App
             <span class="arrow" aria-hidden="true">›</span>
           </a>
 
-          <!-- Sample details: replace when ready. -->
           <p class="project-description">
-            A simple place for everyday lists. Organize
-            groceries, keep track of tasks, and check things
-            off with a clean, distraction-free experience.
+            A simple place for everyday lists. Organize groceries, keep track of tasks, and check things off with a clean, distraction-free experience.
           </p>
 
-          <p class="sample-note">
-            Sample description · Details coming soon
-          </p>
+          <p class="sample-note">Sample description · Details coming soon</p>
 
-          <ul
-            class="project-links"
-            aria-label="EasyListApp resources"
-          >
+          <ul class="project-links" aria-label="EasyListApp resources">
             <li>
-              <span
-                class="placeholder-link"
-                role="link"
-                aria-disabled="true"
-              >
+              <span class="placeholder-link" role="link" aria-disabled="true">
                 <span>Project Documentation</span>
                 <span class="arrow" aria-hidden="true">↗</span>
               </span>
             </li>
 
             <li>
-              <span
-                class="placeholder-link"
-                role="link"
-                aria-disabled="true"
-              >
+              <span class="placeholder-link" role="link" aria-disabled="true">
                 <span>Privacy Policy</span>
                 <span class="arrow" aria-hidden="true">↗</span>
               </span>
             </li>
 
             <li>
-              <span
-                class="placeholder-link"
-                role="link"
-                aria-disabled="true"
-              >
+              <span class="placeholder-link" role="link" aria-disabled="true">
                 <span>Terms of Use</span>
                 <span class="arrow" aria-hidden="true">↗</span>
               </span>
@@ -744,88 +575,46 @@
           </ul>
         </article>
 
-        <!-- Trip Mate -->
-        <article
-          class="project-card"
-          aria-labelledby="tripmate-title"
-        >
+        <article class="project-card" aria-labelledby="tripmate-title">
           <div class="project-heading">
             <div class="app-icon tripmate-icon" aria-hidden="true">
-              <svg
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16 28C16 28 25 19 25 12C25 7.03 20.97 3 16 3C11.03 3 7 7.03 7 12C7 19 16 28 16 28Z"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <circle
-                  cx="16"
-                  cy="12"
-                  r="3.2"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                />
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 28C16 28 25 19 25 12C25 7.03 20.97 3 16 3C11.03 3 7 7.03 7 12C7 19 16 28 16 28Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="16" cy="12" r="3.2" stroke="currentColor" stroke-width="2.2"/>
               </svg>
             </div>
-
             <h3 id="tripmate-title">Trip Mate</h3>
           </div>
 
-          <!-- Sample details: replace when ready. -->
           <p class="project-description">
-            A little less planning. A little more exploring.
-            Keep trip ideas, daily plans, and packing lists
-            together in one simple travel companion.
+            A little less planning. A little more exploring. Keep trip ideas, daily plans, and packing lists together in one simple travel companion.
           </p>
 
-          <p class="sample-note">
-            Sample description · Details coming soon
-          </p>
+          <p class="sample-note">Sample description · Details coming soon</p>
 
-          <ul
-            class="project-links"
-            aria-label="Trip Mate resources"
-          >
+          <ul class="project-links" aria-label="Trip Mate resources">
             <li>
-              <span
-                class="placeholder-link"
-                role="link"
-                aria-disabled="true"
-              >
+              <span class="placeholder-link" role="link" aria-disabled="true">
                 <span>Project Documentation</span>
                 <span class="arrow" aria-hidden="true">↗</span>
               </span>
             </li>
 
             <li>
-              <span
-                class="placeholder-link"
-                role="link"
-                aria-disabled="true"
-              >
+              <span class="placeholder-link" role="link" aria-disabled="true">
                 <span>Privacy Policy</span>
                 <span class="arrow" aria-hidden="true">↗</span>
               </span>
             </li>
 
             <li>
-              <span
-                class="placeholder-link"
-                role="link"
-                aria-disabled="true"
-              >
+              <span class="placeholder-link" role="link" aria-disabled="true">
                 <span>Terms of Use</span>
                 <span class="arrow" aria-hidden="true">↗</span>
               </span>
             </li>
           </ul>
         </article>
-
       </div>
     </section>
   </main>
