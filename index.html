@@ -2,28 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta
     name="description"
     content="Varun Patel — a solo, self-taught coding learner building iOS apps with Xcode and AI-assisted tools."
   >
-
   <meta name="theme-color" content="#f5f5f7">
   <meta name="color-scheme" content="light">
-
-  <!-- Keep the email as plain text on supported Apple browsers. -->
   <meta name="format-detection" content="telephone=no, email=no">
 
   <title>Varun Patel | Independent Developer</title>
 
   <style>
-    /* ---------- Theme ---------- */
-
     :root {
       --background: #f5f5f7;
       --surface: #ffffff;
@@ -34,8 +24,6 @@
       --content-width: 1120px;
       --radius: 28px;
     }
-
-    /* ---------- Base ---------- */
 
     *,
     *::before,
@@ -54,12 +42,8 @@
       background: var(--background);
       color: var(--text);
       font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Helvetica,
-        Arial,
-        sans-serif;
+        -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Helvetica, Arial, sans-serif;
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -71,11 +55,7 @@
       color: var(--text);
     }
 
-    h1,
-    h2,
-    h3,
-    p,
-    figure {
+    h1, h2, h3, p, figure {
       margin: 0;
     }
 
@@ -91,7 +71,7 @@
 
     a:focus-visible {
       outline: 3px solid var(--blue);
-      outline-offset: 6px;
+      outline-offset: 5px;
       border-radius: 4px;
     }
 
@@ -123,7 +103,7 @@
       top: 12px;
     }
 
-    /* ---------- Header ---------- */
+    /* Header */
 
     .site-header {
       background: var(--surface);
@@ -158,13 +138,11 @@
       line-height: 1.5;
     }
 
-    /* ---------- Introduction ---------- */
+    /* Introduction */
 
     .hero {
       display: grid;
-      grid-template-columns:
-        minmax(0, 1.2fr)
-        minmax(0, 0.85fr);
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.85fr);
       align-items: center;
       gap: clamp(32px, 5vw, 72px);
       padding-block: clamp(44px, 7vw, 88px);
@@ -208,12 +186,11 @@
       margin-top: 22px;
       color: var(--secondary);
       font-size: 0.95rem;
-      line-height: 1.7;
       overflow-wrap: anywhere;
       user-select: text;
     }
 
-    /* Styling preserved for the future clickable email. */
+    /* Preserved for future email-link activation. */
 
     .contact-link {
       display: inline-flex;
@@ -225,16 +202,7 @@
       font-size: 0.95rem;
     }
 
-    .contact-link span:first-child {
-      min-width: 0;
-      overflow-wrap: anywhere;
-    }
-
-    .link-arrow {
-      flex-shrink: 0;
-    }
-
-    /* ---------- Full-view portrait ---------- */
+    /* Full image, without cropping */
 
     .portrait {
       width: 100%;
@@ -243,20 +211,14 @@
       justify-self: end;
     }
 
-    /*
-      No fixed height, aspect ratio, clipping, or object-fit: cover.
-      The entire image displays in its original proportions.
-    */
-
     .portrait-image {
-      display: block;
       width: 100%;
       max-width: 100%;
       height: auto;
       border: 0;
     }
 
-    /* ---------- Projects ---------- */
+    /* Projects */
 
     .projects {
       padding-bottom: clamp(48px, 7vw, 88px);
@@ -313,11 +275,29 @@
       color: #2563b9;
     }
 
+    .project-title-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      min-width: 0;
+    }
+
     .project-card h3 {
+      min-width: 0;
       font-size: clamp(1.6rem, 2.6vw, 2rem);
       font-weight: 650;
       line-height: 1.2;
       letter-spacing: -0.045em;
+    }
+
+    .explore-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 44px;
+      font-size: 0.85rem;
+      font-weight: 500;
     }
 
     .project-description {
@@ -344,11 +324,6 @@
     .project-links li {
       min-width: 0;
     }
-
-    /*
-      Resource links remain inactive placeholders.
-      No href="#" or JavaScript is used.
-    */
 
     .placeholder-link {
       display: flex;
@@ -377,7 +352,7 @@
       color: #88888d;
     }
 
-    /* ---------- Footer ---------- */
+    /* Footer */
 
     .footer-inner {
       padding-block: 24px 30px;
@@ -386,13 +361,11 @@
       font-size: 0.75rem;
     }
 
-    /* ---------- Tablets and compact laptops ---------- */
+    /* Responsive layouts */
 
     @media (max-width: 900px) {
       .hero {
-        grid-template-columns:
-          minmax(0, 1.15fr)
-          minmax(0, 0.85fr);
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
         gap: 32px;
       }
 
@@ -405,8 +378,6 @@
       }
     }
 
-    /* ---------- Phones and narrow tablet windows ---------- */
-
     @media (max-width: 700px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
@@ -416,10 +387,6 @@
 
       h1 {
         font-size: clamp(2.8rem, 10vw, 4.3rem);
-      }
-
-      .hero-description {
-        max-width: 58ch;
       }
 
       .portrait {
@@ -440,8 +407,6 @@
       }
     }
 
-    /* ---------- Narrow phones ---------- */
-
     @media (max-width: 380px) {
       .header-inner {
         min-height: 82px;
@@ -450,7 +415,6 @@
 
       h1 {
         font-size: clamp(2.35rem, 10vw, 2.8rem);
-        letter-spacing: -0.06em;
       }
 
       .hero-tagline {
@@ -466,8 +430,6 @@
       }
     }
 
-    /* ---------- Very narrow windows ---------- */
-
     @media (max-width: 320px) {
       .container {
         width: calc(100% - 24px);
@@ -481,12 +443,8 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <a class="skip-link" href="#main">
-    Skip to content
-  </a>
-
-  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
       <div class="header-identity">
@@ -497,10 +455,7 @@
   </header>
 
   <main id="main" class="container">
-
-    <!-- Introduction and full-view portrait -->
     <section class="hero" aria-labelledby="intro-title">
-
       <div class="hero-copy">
         <h1 id="intro-title">
           <span class="intro-line">Hi, I am</span>
@@ -518,32 +473,25 @@
           me learn, explore ideas, and work through challenges.
         </p>
 
-        <!-- Current email display: plain text, not clickable. -->
-        <p class="contact-email">
-          vickypatel.13@gmail.com
-        </p>
+        <!-- Current email: plain text, not clickable. -->
+        <p class="contact-email">vickypatel.13@gmail.com</p>
 
         <!--
           FUTURE CLICKABLE EMAIL
 
-          To enable:
-          1. Remove the plain-text email paragraph above.
-          2. Uncomment the anchor below.
+          Remove the plain-text email above and uncomment
+          this link when you want to enable email contact.
 
           <a
             class="contact-link"
             href="mailto:vickypatel.13@gmail.com"
           >
             <span>vickypatel.13@gmail.com</span>
-            <span class="link-arrow" aria-hidden="true">↗</span>
+            <span aria-hidden="true">↗</span>
           </a>
         -->
       </div>
 
-      <!--
-        Keep this image beside index.html.
-        The entire image is displayed without cropping.
-      -->
       <figure class="portrait">
         <img
           class="portrait-image"
@@ -553,23 +501,15 @@
           fetchpriority="high"
         >
       </figure>
-
     </section>
 
-    <!-- Projects -->
     <section class="projects" aria-labelledby="projects-title">
-
       <div class="section-heading">
         <h2 id="projects-title">Projects in progress.</h2>
       </div>
 
       <div class="project-grid">
-
-        <!-- EasyListApp -->
-        <article
-          class="project-card"
-          aria-labelledby="easylist-title"
-        >
+        <article class="project-card" aria-labelledby="easylist-title">
           <div class="app-icon easylist-icon" aria-hidden="true">
             <svg
               viewBox="0 0 32 32"
@@ -577,7 +517,7 @@
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M5 9L7 11L11 6"
+                d="M5 9L7 11L11 6M5 17L7 19L11 14M5 25L7 27L11 22"
                 stroke="currentColor"
                 stroke-width="2.2"
                 stroke-linecap="round"
@@ -589,19 +529,22 @@
                 stroke-width="2.2"
                 stroke-linecap="round"
               />
-              <path
-                d="M5 17L7 19L11 14M5 25L7 27L11 22"
-                stroke="currentColor"
-                stroke-width="2.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
             </svg>
           </div>
 
-          <h3 id="easylist-title">EasyListApp</h3>
+          <div class="project-title-row">
+            <h3 id="easylist-title">EasyListApp</h3>
 
-          <!-- Sample details: replace when ready. -->
+            <!-- Opens in the same tab. -->
+            <a
+              class="explore-link"
+              href="./EasyListApp_LandingPage.html"
+            >
+              Explore App
+              <span aria-hidden="true">›</span>
+            </a>
+          </div>
+
           <p class="project-description">
             A simple place for everyday lists. Organize
             groceries, keep track of tasks, and check things
@@ -612,60 +555,29 @@
             Sample description · Details coming soon
           </p>
 
-          <!-- Inactive resource placeholders. -->
-          <ul
-            class="project-links"
-            aria-label="EasyListApp resources"
-          >
+          <ul class="project-links" aria-label="EasyListApp resources">
             <li>
-              <span
-                class="placeholder-link"
-                role="link"
-                aria-disabled="true"
-              >
+              <span class="placeholder-link" role="link" aria-disabled="true">
                 <span>Project Documentation</span>
-                <span
-                  class="placeholder-arrow"
-                  aria-hidden="true"
-                >↗</span>
+                <span class="placeholder-arrow" aria-hidden="true">↗</span>
               </span>
             </li>
-
             <li>
-              <span
-                class="placeholder-link"
-                role="link"
-                aria-disabled="true"
-              >
+              <span class="placeholder-link" role="link" aria-disabled="true">
                 <span>Privacy Policy</span>
-                <span
-                  class="placeholder-arrow"
-                  aria-hidden="true"
-                >↗</span>
+                <span class="placeholder-arrow" aria-hidden="true">↗</span>
               </span>
             </li>
-
             <li>
-              <span
-                class="placeholder-link"
-                role="link"
-                aria-disabled="true"
-              >
+              <span class="placeholder-link" role="link" aria-disabled="true">
                 <span>Terms of Use</span>
-                <span
-                  class="placeholder-arrow"
-                  aria-hidden="true"
-                >↗</span>
+                <span class="placeholder-arrow" aria-hidden="true">↗</span>
               </span>
             </li>
           </ul>
         </article>
 
-        <!-- Trip Mate -->
-        <article
-          class="project-card"
-          aria-labelledby="tripmate-title"
-        >
+        <article class="project-card" aria-labelledby="tripmate-title">
           <div class="app-icon tripmate-icon" aria-hidden="true">
             <svg
               viewBox="0 0 32 32"
@@ -689,9 +601,10 @@
             </svg>
           </div>
 
-          <h3 id="tripmate-title">Trip Mate</h3>
+          <div class="project-title-row">
+            <h3 id="tripmate-title">Trip Mate</h3>
+          </div>
 
-          <!-- Sample details: replace when ready. -->
           <p class="project-description">
             A little less planning. A little more exploring.
             Keep trip ideas, daily plans, and packing lists
@@ -702,66 +615,35 @@
             Sample description · Details coming soon
           </p>
 
-          <!-- Inactive resource placeholders. -->
-          <ul
-            class="project-links"
-            aria-label="Trip Mate resources"
-          >
+          <ul class="project-links" aria-label="Trip Mate resources">
             <li>
-              <span
-                class="placeholder-link"
-                role="link"
-                aria-disabled="true"
-              >
+              <span class="placeholder-link" role="link" aria-disabled="true">
                 <span>Project Documentation</span>
-                <span
-                  class="placeholder-arrow"
-                  aria-hidden="true"
-                >↗</span>
+                <span class="placeholder-arrow" aria-hidden="true">↗</span>
               </span>
             </li>
-
             <li>
-              <span
-                class="placeholder-link"
-                role="link"
-                aria-disabled="true"
-              >
+              <span class="placeholder-link" role="link" aria-disabled="true">
                 <span>Privacy Policy</span>
-                <span
-                  class="placeholder-arrow"
-                  aria-hidden="true"
-                >↗</span>
+                <span class="placeholder-arrow" aria-hidden="true">↗</span>
               </span>
             </li>
-
             <li>
-              <span
-                class="placeholder-link"
-                role="link"
-                aria-disabled="true"
-              >
+              <span class="placeholder-link" role="link" aria-disabled="true">
                 <span>Terms of Use</span>
-                <span
-                  class="placeholder-arrow"
-                  aria-hidden="true"
-                >↗</span>
+                <span class="placeholder-arrow" aria-hidden="true">↗</span>
               </span>
             </li>
           </ul>
         </article>
-
       </div>
     </section>
-
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="container footer-inner">
       <p>© 2026 Varun Patel.</p>
     </div>
   </footer>
-
 </body>
 </html>
