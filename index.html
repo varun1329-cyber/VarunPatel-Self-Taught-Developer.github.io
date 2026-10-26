@@ -228,7 +228,7 @@
 
     .portrait {
       width: 100%;
-      max-width: 390px;
+      max-width: 450px;
       min-width: 0;
       justify-self: center;
       display: flex;
@@ -240,12 +240,11 @@
 
     .portrait-image {
       width: 100%;
-      max-width: 100%;
-      height: clamp(420px, 46vw, 560px);
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       border: 0;
       border-radius: 24px;
-      background: #f6f7f9;
+      background: transparent;
     }
 
     .image-tagline {
@@ -443,10 +442,6 @@
       .portrait {
         width: min(100%, 360px);
         justify-self: center;
-      }
-
-      .portrait-image {
-        height: clamp(320px, 62vw, 460px);
       }
 
       .project-grid {
