@@ -2,17 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
-
-  <meta
-    name="description"
-    content="Varun Patel — a solo, self-taught coding learner building iOS apps with Xcode and AI-assisted tools."
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Varun Patel — a solo, self-taught coding learner building iOS apps with Xcode and AI-assisted tools.">
   <meta name="theme-color" content="#f5f5f7">
   <meta name="color-scheme" content="light">
   <meta name="format-detection" content="telephone=no, email=no">
@@ -22,16 +13,18 @@
   <style>
     :root {
       --background: #f5f5f7;
-      --surface: rgba(255, 255, 255, 0.85);
-      --text: #1d1d1f;
-      --secondary: #626267;
-      --border: #dedee3;
+      --surface: rgba(255, 255, 255, 0.82);
+      --text-primary: #1d1d1f;
+      --text-secondary: #86868b;
+      --border-subtle: rgba(0, 0, 0, 0.08);
       --blue: #0066cc;
+      --blue-hover: #0077ed;
       --green: #28774a;
       --green-light: #e9f5ee;
-      --blue-light: #eaf2ff;
-      --content-width: 1120px;
-      --radius: 28px;
+      --content-width: 980px;
+      --radius-card: 28px;
+      --radius-btn: 980px;
+      --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
     * {
@@ -41,6 +34,7 @@
     html {
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -50,11 +44,14 @@
       min-height: 100svh;
       margin: 0;
       background: var(--background);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
+      color: var(--text-primary);
+      font-family: var(--font-stack);
+      font-size: 17px;
+      line-height: 1.47059;
+      font-weight: 400;
+      letter-spacing: -0.022em;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       overflow-wrap: anywhere;
     }
 
@@ -63,23 +60,24 @@
     }
 
     ::selection {
-      background: #d5e8ff;
-      color: var(--text);
+      background: rgba(0, 102, 204, 0.2);
+      color: var(--text-primary);
     }
 
     a {
       color: var(--blue);
       text-decoration: none;
+      transition: color 0.15s ease, opacity 0.15s ease;
     }
 
     a:hover {
-      text-decoration: underline;
-      text-underline-offset: 4px;
+      text-decoration: none;
+      opacity: 0.85;
     }
 
     a:focus-visible {
-      outline: 3px solid var(--blue);
-      outline-offset: 5px;
+      outline: 2px solid var(--blue);
+      outline-offset: 4px;
       border-radius: 4px;
     }
 
@@ -89,7 +87,7 @@
     }
 
     .container {
-      width: min(var(--content-width), calc(100% - clamp(32px, 6vw, 80px)));
+      width: min(var(--content-width), calc(100% - 40px));
       margin-inline: auto;
     }
 
@@ -101,115 +99,113 @@
       position: absolute;
       top: -100px;
       left: 16px;
-      z-index: 100;
+      z-index: 2000;
       padding: 10px 16px;
       border-radius: 8px;
-      background: var(--text);
-      color: var(--surface);
+      background: var(--text-primary);
+      color: #ffffff;
+      font-size: 14px;
     }
 
     .skip-link:focus {
       top: 12px;
     }
 
+    /* Sub Header Identity Bar */
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 999;
       background: var(--surface);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 72px;
-      padding-block: 14px;
-      gap: 24px;
-    }
-
-    .header-identity {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 2px;
-      min-width: 0;
+      height: 52px;
     }
 
     .site-name {
-      font-size: 1.05rem;
-      font-weight: 650;
-      line-height: 1.35;
-      letter-spacing: -0.035em;
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
     }
 
     .header-caption {
-      color: var(--secondary);
-      font-size: 0.75rem;
-      line-height: 1.4;
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 400;
+      margin-left: 8px;
     }
 
     .header-nav {
       display: flex;
       align-items: center;
-      gap: 24px;
-      font-size: 0.87rem;
-      font-weight: 500;
+      gap: 20px;
+      font-size: 12px;
+      font-weight: 400;
     }
 
     .header-nav a {
-      color: var(--text);
+      color: var(--text-primary);
+      opacity: 0.8;
     }
 
     .header-nav a:hover {
       color: var(--blue);
+      opacity: 1;
     }
 
+    /* Hero Section */
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+      grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
-      gap: clamp(18px, 2vw, 26px);
-      padding-block: clamp(44px, 7vw, 88px);
+      gap: 40px;
+      padding-block: clamp(56px, 8vw, 100px);
     }
 
     .hero-copy {
       min-width: 0;
     }
 
+    .eyebrow {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: -0.015em;
+      margin-bottom: 6px;
+    }
+
     h1 {
-      font-size: clamp(3rem, 6.1vw, 5.1rem);
-      font-weight: 650;
-      line-height: 1.07;
-      letter-spacing: -0.065em;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      color: var(--text-primary);
     }
 
     .intro-line {
       display: block;
     }
 
-    .hero-tagline {
-      margin-top: 24px;
-      font-size: clamp(1.25rem, 2.2vw, 1.75rem);
-      font-weight: 550;
-      line-height: 1.3;
-      letter-spacing: -0.035em;
-    }
-
     .hero-description {
-      max-width: 540px;
-      margin-top: 20px;
-      color: var(--secondary);
-      font-size: clamp(1rem, 1.4vw, 1.1rem);
-      line-height: 1.8;
-      letter-spacing: -0.015em;
+      margin-top: 24px;
+      color: var(--text-secondary);
+      font-size: 17px;
+      line-height: 1.47059;
+      font-weight: 400;
+      letter-spacing: -0.022em;
     }
 
     .hero-description p {
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .hero-description p:last-child {
@@ -217,86 +213,101 @@
     }
 
     .portrait {
-      width: min(100%, 760px);
-      max-width: 100%;
-      min-width: 0;
-      justify-self: center;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
+      gap: 12px;
+    }
+
+    .portrait-image-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      background: #ffffff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portrait-image-wrapper:hover {
+      transform: scale(1.01);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
     }
 
     .portrait-image {
       width: 100%;
       height: auto;
-      object-fit: contain;
-      border: 0;
-      border-radius: 24px;
-      background: transparent;
+      object-fit: cover;
+      display: block;
     }
 
     .image-tagline {
-      font-size: clamp(1.08rem, 1.7vw, 1.44rem);
-      font-weight: 550;
-      line-height: 1.28;
-      letter-spacing: -0.03em;
-      color: var(--secondary);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-secondary);
       text-align: center;
-      margin-top: 0;
+      letter-spacing: -0.01em;
     }
 
+    /* Projects Section */
     .projects {
-      padding-bottom: clamp(48px, 7vw, 88px);
+      padding-bottom: clamp(60px, 8vw, 110px);
     }
 
     .section-heading {
-      margin-bottom: 26px;
+      margin-bottom: 32px;
     }
 
     h2 {
-      font-size: clamp(1.9rem, 3.5vw, 2.7rem);
-      font-weight: 650;
-      line-height: 1.15;
-      letter-spacing: -0.055em;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.08349;
+      letter-spacing: -0.03em;
     }
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
 
     .project-card {
       display: flex;
       flex-direction: column;
-      min-width: 0;
-      padding: clamp(24px, 3.3vw, 38px);
-      border: 1px solid rgba(0, 0, 0, 0.04);
-      border-radius: var(--radius);
+      padding: clamp(32px, 4vw, 44px);
+      border-radius: var(--radius-card);
       background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border-subtle);
+      transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
     }
 
     .project-heading {
       display: flex;
       align-items: center;
-      gap: 18px;
-      min-width: 0;
+      gap: 16px;
+      margin-bottom: 12px;
     }
 
     .app-icon {
       display: grid;
-      flex: 0 0 64px;
+      flex: 0 0 56px;
       place-items: center;
-      width: 64px;
-      height: 64px;
-      border-radius: 17px;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     }
 
     .app-icon svg {
-      width: 34px;
-      height: 34px;
+      width: 30px;
+      height: 30px;
     }
 
     .easylist-icon {
@@ -310,118 +321,101 @@
     }
 
     .project-card h3 {
-      min-width: 0;
-      font-size: clamp(1.6rem, 2.6vw, 2rem);
-      font-weight: 650;
-      line-height: 1.2;
-      letter-spacing: -0.045em;
-    }
-
-    .explore-link {
-      display: inline-flex;
-      align-items: center;
-      align-self: flex-start;
-      gap: 6px;
-      min-height: 44px;
-      max-width: 100%;
-      margin-top: 10px;
-      font-size: 0.87rem;
-      font-weight: 500;
-    }
-
-    .arrow {
-      flex-shrink: 0;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.16667;
+      letter-spacing: -0.025em;
     }
 
     .project-description {
-      margin-top: 20px;
-      color: var(--secondary);
-      font-size: 0.98rem;
-      line-height: 1.75;
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.46667;
+      margin-bottom: 24px;
+      flex: 1;
     }
 
-    .explore-link + .project-description {
-      margin-top: 12px;
+    .cta-wrapper {
+      margin-top: auto;
+    }
+
+    .explore-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #ffffff;
+      background-color: var(--blue);
+      border-radius: var(--radius-btn);
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .explore-button:hover {
+      background-color: var(--blue-hover);
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    /* Apple-style Footer */
+    footer {
+      background: #f5f5f7;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 12px;
+      line-height: 1.33337;
+      padding-block: 20px 40px;
     }
 
     .footer-inner {
-      padding-block: 24px 30px;
-      border-top: 1px solid var(--border);
-      color: var(--secondary);
-      font-size: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
-        gap: 20px;
-      }
-
-      h1 {
-        font-size: clamp(2.8rem, 6vw, 4rem);
-      }
-
-      .project-grid {
-        gap: 20px;
-      }
+    .footer-legal {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    @media (max-width: 700px) {
-      .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
+    .footer-text {
+      color: var(--text-secondary);
+    }
 
-      .header-nav {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 16px;
-      }
-
+    /* Responsiveness */
+    @media (max-width: 834px) {
       .hero {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 20px;
-        padding-block: 42px 50px;
-      }
-
-      h1 {
-        font-size: clamp(2.8rem, 10vw, 4.3rem);
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding-block: 40px 60px;
       }
 
       .portrait {
-        width: min(100%, 360px);
-        justify-self: center;
+        max-width: 480px;
+        margin-inline: auto;
       }
 
       .project-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .section-heading {
-        margin-bottom: 22px;
-      }
-
-      .project-card {
-        padding: 28px;
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 380px) {
-      h1 {
-        font-size: clamp(2.35rem, 10vw, 2.8rem);
-      }
-
-      .hero-tagline {
-        font-size: 1.2rem;
+    @media (max-width: 500px) {
+      .header-nav {
+        gap: 12px;
       }
 
       .project-card {
-        padding: 22px;
+        padding: 24px;
       }
 
-      .project-heading {
-        gap: 12px;
+      h1 {
+        font-size: 2.4rem;
       }
     }
   </style>
@@ -432,11 +426,12 @@
     Skip to content
   </a>
 
+  <!-- Header Identity -->
   <header class="site-header">
     <div class="container header-inner">
-      <div class="header-identity">
-        <p class="site-name">Varun Patel</p>
-        <p class="header-caption">Independent Developer</p>
+      <div style="display: flex; align-items: baseline;">
+        <span class="site-name">Varun Patel</span>
+        <span class="header-caption">Developer Portfolio</span>
       </div>
       <nav class="header-nav" aria-label="Header Navigation">
         <a href="./EasyListApp_LandingPage.html" target="_self">EasyListapp</a>
@@ -448,6 +443,7 @@
   <main id="main" class="container">
     <section class="hero" aria-labelledby="intro-title">
       <div class="hero-copy">
+        <p class="eyebrow">Developer &amp; Creator</p>
         <h1 id="intro-title">
           <span class="intro-line">Hi, I am</span>
           <span class="intro-line">Varun Patel.</span>
@@ -455,7 +451,7 @@
 
         <div class="hero-description">
           <p>
-            I am a 42-year-old Indian-origin father, husband, and aspiring iOS app developer who has called the USA home since 2005. I live with my wife, Smruti Patel, and our two children, Jenil[...]
+            I am a 42-year-old Indian-origin father, husband, and aspiring iOS app developer who has called the USA home since 2005. I live with my wife, Smruti Patel, and our two children, Jenil.
           </p>
           <p>
             My passion for iOS app development inspired me to begin a hands-on coding journey in 2025, exploring how AI-powered tools could help me turn ideas into real apps. As a solo builder and self-taught coder, I focus on practical problem-solving, rapid iteration, and turning ideas into products that people can actually use.
@@ -464,13 +460,16 @@
       </div>
 
       <figure class="portrait">
-        <img
-          class="portrait-image"
-          src="./Gemini_Generated_Image_prza08prza08prza.jpg"
-          alt="Avatar of Varun Patel"
-          decoding="async"
-          fetchpriority="high"
-        >
+        <div class="portrait-image-wrapper">
+          <img
+            class="portrait-image"
+            src="./Gemini_Generated_Image_prza08prza08prza.jpg"
+            alt="Avatar of Varun Patel"
+            decoding="async"
+            fetchpriority="high"
+            onerror="this.onerror=null; this.src='https://placehold.co/800x800/e2e8f0/1e293b?text=Varun+Patel';"
+          >
+        </div>
         <p class="image-tagline">Learning to code. Bringing ideas to life.</p>
       </figure>
     </section>
@@ -492,14 +491,15 @@
             <h3 id="easylist-title">EasyListApp</h3>
           </div>
 
-          <a class="explore-link" href="./EasyListApp_LandingPage.html" target="_self">
-            Explore App
-            <span class="arrow" aria-hidden="true">›</span>
-          </a>
-
           <p class="project-description">
             A simple place for everyday lists. Organize groceries, keep track of tasks, and check things off with a clean, distraction-free experience.
           </p>
+
+          <div class="cta-wrapper">
+            <a class="explore-button" href="./EasyListApp_LandingPage.html" target="_self">
+              Explore App
+            </a>
+          </div>
         </article>
 
         <article class="project-card" aria-labelledby="tripmate-title">
@@ -513,14 +513,15 @@
             <h3 id="tripmate-title">Trip Mate</h3>
           </div>
 
-          <a class="explore-link" href="./TripMate_LandingPage.html" target="_self">
-            Explore App
-            <span class="arrow" aria-hidden="true">›</span>
-          </a>
-
           <p class="project-description">
-            Every Trip needs a Smart "Expense" Mate
+            Every Trip needs a Smart "Expense" Mate. Plan, track, and split expenses effortlessly.
           </p>
+
+          <div class="cta-wrapper">
+            <a class="explore-button" href="./TripMate_LandingPage.html" target="_self">
+              Explore App
+            </a>
+          </div>
         </article>
       </div>
     </section>
@@ -528,8 +529,13 @@
 
   <footer>
     <div class="container footer-inner">
-      <p>© 2026 Varun Patel | varun1329@icloud.com</p>
-      <p>A clean, responsive, Apple-inspired personal portfolio website built with modern HTML5 and CSS. This portfolio highlights Varun Patel's journey as an independent iOS developer, featuring project showcases, app landing pages, and practical product storytelling.</p>
+      <p class="footer-text">
+        A clean, responsive, Apple-inspired personal portfolio website built with modern HTML5 and CSS. This portfolio highlights Varun Patel's journey as an independent iOS developer, featuring project showcases, app landing pages, and practical product storytelling.
+      </p>
+      <div class="footer-legal">
+        <span>Copyright © 2026 Varun Patel. All rights reserved.</span>
+        <span>Contact: <a href="mailto:varun1329@icloud.com">varun1329@icloud.com</a></span>
+      </div>
     </div>
   </footer>
 </body>
